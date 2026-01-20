@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuxSpace | Minimalist Collection</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Theme adaptation for Home 2: Nordic Precision */
+        :root {
+            --primary: #c5a059;
+            /* Syncing with global luxury gold */
+            --primary-dark: #a68446;
+            --accent: #ffca3a;
+        }
+
+        /* Hero 2 background should respect theme */
+        .hero-2 {
+            min-height: 90vh;
+            background: var(--bg-main);
+            display: flex;
+            align-items: center;
+            padding-top: 120px;
+            /* Space for navbar */
+            border-bottom: 1px solid var(--border);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Liquid Background -->
+    <div class="bg-blobs">
+        <div class="blob"></div>
+        <div class="blob"></div>
+        <div class="blob"></div>
+    </div>
+    <div class="bg-grid"></div>
+
+    <!-- Navbar (Same as Home 1 for navigation) -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-couch"></i> LuxSpace
+            </a>
+            <!-- Mobile Menu Toggle -->
+            <button id="menu-toggle" class="toggle-btn" style="display: none; margin-right: 15px;">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li style="position: relative;">
+                    <a href="#" class="nav-link active dropdown-toggle">Home <i class="fas fa-chevron-down"
+                            style="font-size: 0.8rem;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="index.html">Home 1</a></li>
+                        <li><a href="home2.html">Home 2</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li style="position: relative;">
+                    <a href="#" class="nav-link dropdown-toggle">Dashboards <i class="fas fa-chevron-down"
+                            style="font-size: 0.8rem;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="dashboard-user.html">User Panel</a></li>
+                        <li><a href="dashboard-admin.html">Admin Panel</a></li>
+                    </ul>
+                </li>
+                <li class="mobile-nav-item"
+                    style="border-top: 1px solid var(--border); margin-top: 20px; padding-top: 20px;">
+                    <div
+                        style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px;">
+                        <div style="display: flex; gap: 15px;">
+                            <button class="toggle-btn theme-toggle"
+                                style="width: 45px; height: 45px; border-radius: 50%; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; background: var(--bg-main); color: var(--text-main); font-size: 1.2rem;"><i
+                                    class="fas fa-moon"></i></button>
+                            <button class="toggle-btn rtl-toggle"
+                                style="width: 45px; height: 45px; border-radius: 50%; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; background: var(--bg-main); color: var(--text-main); font-size: 1.2rem;"><i
+                                    class="fas fa-globe"></i></button>
+                        </div>
+                        <a href="login.html" class="btn btn-primary"
+                            style="flex: 1; min-width: 120px; text-align: center; padding: 12px 20px;">Login</a>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="toggle-btn theme-toggle" title="Toggle Theme"><i class="fas fa-moon"></i></button>
+                <button class="toggle-btn rtl-toggle" title="Toggle RTL"><i class="fas fa-globe"></i></button>
+                <a href="login.html" class="btn btn-outline" style="padding: 8px 16px;">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section Home 2 -->
+    <header class="hero-2">
+        <div class="container hero-container-mobile">
+            <div class="hero-content">
+                <span class="product-cat reveal" style="display: block; margin-bottom: 20px;">Limited Edition</span>
+                <h1 class="hero-title reveal" style="font-size: clamp(3rem, 10vw, 5rem);">The Zen <br>Bedroom</h1>
+                <p class="hero-desc reveal">Simple lines, natural materials, and a sense of tranquility. Transform your
+                    private sanctuary.</p>
+                <div class="reveal">
+                    <button class="btn btn-primary">Discover Series</button>
+                </div>
+            </div>
+            <div class="hero-image-wrap reveal">
+                <img src="Assets/hero2.jpg" alt="Zen Bedroom" class="hero-image-responsive">
+            </div>
+        </div>
+    </header>
+
+    <style>
+        .hero-container-mobile {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hero-image-responsive {
+            border-radius: 50px 0 50px 0;
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            box-shadow: 30px 30px 0 var(--primary);
+        }
+
+        @media (max-width: 992px) {
+            .hero-2 {
+                height: auto;
+                padding: 120px 0 60px;
+            }
+
+            .hero-container-mobile {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-image-responsive {
+                height: 350px;
+                margin-top: 40px;
+                box-shadow: 15px 15px 0 var(--primary);
+            }
+
+            .hero-desc {
+                margin: 0 auto 2rem;
+            }
+        }
+    </style>
+
+    <!-- Mid Section - Featured Product Split -->
+    <section class="section">
+        <div class="container">
+            <div class="feature-split-grid" style="align-items: center;">
+                <div class="reveal">
+                    <img src="Assets/product3.jpg" alt="Marble Table"
+                        style="width: 100%; border-radius: var(--radius); filter: grayscale(100%); transition: 0.5s;"
+                        onmouseover="this.style.filter='grayscale(0%)'"
+                        onmouseout="this.style.filter='grayscale(100%)'">
+                </div>
+                <div class="reveal">
+                    <h2 class="section-title">Statuario Marble <br>Dining Series</h2>
+                    <p class="section-subtitle" style="margin: 20px 0;">Handpiked marble from the Carrara region,
+                        sculpted into a masterpiece of modern dining. Each table is unique, just like your home.</p>
+                    <ul style="margin-bottom: 30px;">
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check-circle text-primary"></i> Italian
+                            Carrara Marble</li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check-circle text-primary"></i> Sustainable
+                            Production</li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check-circle text-primary"></i> Lifetime
+                            Warranty</li>
+                    </ul>
+                    <button class="btn btn-outline">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Mastery of Form (New Process Section) -->
+    <section class="section" style="background: var(--bg-alt); padding: 120px 0;">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 80px;">
+                <span class="text-primary"
+                    style="letter-spacing: 5px; text-transform: uppercase; font-size: 0.8rem; font-weight: 700;">Our
+                    Philosophy</span>
+                <h2 class="section-title reveal">The Mastery <span class="text-primary italic">of Form</span></h2>
+            </div>
+
+            <div class="process-grid">
+                <div class="reveal glass-box" style="padding: 50px; border-radius: 30px; text-align: left;">
+                    <div
+                        style="font-size: 3rem; color: var(--primary); opacity: 0.2; font-weight: 800; margin-bottom: 20px;">
+                        01</div>
+                    <h4 style="margin-bottom: 15px;">Nordic Precision</h4>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.8;">Every line serves a
+                        purpose. We adhere to the strict principles of Scandinavian reductionism—where beauty is found
+                        in the essential.</p>
+                </div>
+                <div class="reveal glass-box"
+                    style="padding: 50px; border-radius: 30px; text-align: left; background: var(--secondary); color: white;">
+                    <div
+                        style="font-size: 3rem; color: var(--primary); opacity: 0.4; font-weight: 800; margin-bottom: 20px;">
+                        02</div>
+                    <h4 style="margin-bottom: 15px; color: white;">Ethical Subtlety</h4>
+                    <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; line-height: 1.8;">We source only from
+                        managed forests. The luxury of our timber lies in its honesty—untouched grains protected by
+                        natural oils.</p>
+                </div>
+                <div class="reveal glass-box" style="padding: 50px; border-radius: 30px; text-align: left;">
+                    <div
+                        style="font-size: 3rem; color: var(--primary); opacity: 0.2; font-weight: 800; margin-bottom: 20px;">
+                        03</div>
+                    <h4 style="margin-bottom: 15px;">Haptic Soul</h4>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.8;">Our final finish is always
+                        hand-applied. We believe you should feel the artist's touch in every smooth surface and rounded
+                        edge.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collection Banner -->
+    <!-- Signature Drop Link -->
+    <section class="container reveal">
+        <div class="collection-banner">
+            <div
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.1; background: repeating-linear-gradient(45deg, transparent, transparent 10px, var(--bg-main) 10px, var(--bg-main) 20px);">
+            </div>
+            <div style="position: relative; z-index: 2; text-align: center;">
+                <span
+                    style="font-family: 'Outfit'; letter-spacing: 5px; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 20px; display: block;">Limited
+                    Access</span>
+                <h2 style="font-size: 4rem; line-height: 1; margin-bottom: 30px; font-family: 'Outfit';">Japandi
+                    <br><span style="font-weight: 300; font-style: italic;">Edition 04</span>
+                </h2>
+                <div class="countdown-container">
+                    <div><span style="font-size: 2rem; font-weight: 700;">02</span><br><span
+                            style="opacity: 0.6; font-size: 0.8rem;">DAYS</span></div>
+                    <div><span style="font-size: 2rem; font-weight: 700;">14</span><br><span
+                            style="opacity: 0.6; font-size: 0.8rem;">HOURS</span></div>
+                    <div><span style="font-size: 2rem; font-weight: 700;">36</span><br><span
+                            style="opacity: 0.6; font-size: 0.8rem;">MINS</span></div>
+                </div>
+                <button class="btn btn-outline" style="border-color: var(--bg-main); color: var(--bg-main);">Join
+                    Waitlist</button>
+            </div>
+            <i class="fas fa-clock"
+                style="position: absolute; right: -50px; bottom: -50px; font-size: 20rem; opacity: 0.1;"></i>
+        </div>
+    </section>
+
+    <!-- Grid of items -->
+    <!-- Editorial Masonry Grid -->
+    <section class="section">
+        <div class="container">
+            <div class="masonry-grid" style="gap: 30px;">
+
+                <!-- Item 1 (Large Vertical) -->
+                <div class="reveal masonry-item-tall" style="position: relative;">
+                    <div style="height: 100%; border-radius: var(--radius); overflow: hidden;">
+                        <img src="Assets/product1.jpg"
+                            style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease;"
+                            onmouseover="this.style.transform='scale(1.05)'"
+                            onmouseout="this.style.transform='scale(1)'">
+                    </div>
+                    <div style="position: absolute; bottom: 30px; left: 30px;">
+                        <h3
+                            style="background: var(--bg-main); color: var(--text-main); padding: 10px 20px; border-radius: 50px; display: inline-block;">
+                            Lounge 01</h3>
+                    </div>
+                </div>
+
+                <!-- Item 2 (Wide Horizontal) -->
+                <div class="reveal masonry-item-wide" style="position: relative;">
+                    <div style="height: 100%; border-radius: var(--radius); overflow: hidden;">
+                        <img src="Assets/hero2.jpg"
+                            style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); transition: all 0.6s ease;"
+                            onmouseover="this.style.filter='grayscale(0)'"
+                            onmouseout="this.style.filter='grayscale(100%)'">
+                    </div>
+                    <div style="position: absolute; top: 30px; right: 30px; text-align: right;">
+                        <h2 style="font-size: 2.5rem; color: white; text-shadow: 0 5px 20px rgba(0,0,0,0.5);">The
+                            <br>Sanctuary
+                        </h2>
+                    </div>
+                </div>
+
+                <!-- Item 3 (Small with background) -->
+                <div class="reveal masonry-item-box"
+                    style="background: url('Assets/product4.jpg') center/cover; border-radius: var(--radius); padding: 30px; display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden;">
+                    <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.4); z-index: 1;"></div>
+                    <div style="position: relative; z-index: 2; color: white;">
+                        <span style="color: var(--primary); letter-spacing: 2px;">STARTING AT</span><br>
+                        <span style="font-size: 2.5rem; font-weight: 700;">$850</span>
+                    </div>
+                </div>
+
+                <!-- Item 4 (Medium with background) -->
+                <div class="reveal masonry-item-box"
+                    style="background: linear-gradient(rgba(26,26,26,0.8), rgba(26,26,26,0.8)), url('Assets/product2.jpg') center/cover; border-radius: var(--radius); padding: 30px; color: white; display: flex; align-items: center; justify-content: space-between; position: relative; overflow: hidden;">
+                    <div
+                        style="position: relative; z-index: 2; display: flex; width: 100%; align-items: center; justify-content: space-between;">
+                        <h3>View Full <br>Catalogue</h3>
+                        <div
+                            style="width: 50px; height: 50px; border: 1px solid white; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Narratives (New Testimonials Section) -->
+    <section class="section" style="background: var(--bg-main); border-top: 1px solid var(--border);">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 80px; align-items: center;">
+                <div class="reveal">
+                    <h2 class="section-title">Client <br><span class="text-primary italic">Narratives</span></h2>
+                    <p style="color: var(--text-muted); margin-bottom: 40px;">Stories of transformation from homes that
+                        found their soul with LuxSpace Pieces.</p>
+                    <div style="display: flex; gap: 20px;">
+                        <div style="width: 60px; height: 1px; background: var(--primary); margin-top: 15px;"></div>
+                        <p style="font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase;">Est. 1998</p>
+                    </div>
+                </div>
+                <div class="reveal" style="display: grid; grid-template-columns: 1fr; gap: 30px;">
+                    <div class="glass-box" style="padding: 40px; border-radius: 20px;">
+                        <p style="font-size: 1.1rem; font-style: italic; margin-bottom: 25px; line-height: 1.6;">"The
+                            'Zen Bedroom' series didn't just change my room; it changed my mornings. The morning light
+                            hitting the oak surfaces is truly poetic."</p>
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <img src="Assets/avatar.jpg" alt="Sofia Henderson"
+                                style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary);">
+                            <div>
+                                <h5 style="margin: 0;">Sofia Henderson</h5>
+                                <p style="margin: 0; font-size: 0.75rem; color: var(--text-muted);">Architect, Stockholm
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Reach Metrics (New Stats Banner) -->
+    <section class="reveal" style="margin: 100px 0;">
+        <div class="container">
+            <div class="stats-grid reveal">
+                <div>
+                    <h3 style="font-size: 3rem; color: var(--primary); margin-bottom: 10px;">140+</h3>
+                    <p style="font-size: 0.75rem; letter-spacing: 2px; opacity: 0.6; text-transform: uppercase;">Cities
+                        Worldwide</p>
+                </div>
+                <div>
+                    <h3 style="font-size: 3rem; color: var(--primary); margin-bottom: 10px;">98%</h3>
+                    <p style="font-size: 0.75rem; letter-spacing: 2px; opacity: 0.6; text-transform: uppercase;">
+                        Seamless Delivery</p>
+                </div>
+                <div>
+                    <h3 style="font-size: 3rem; color: var(--primary); margin-bottom: 10px;">12k</h3>
+                    <p style="font-size: 0.75rem; letter-spacing: 2px; opacity: 0.6; text-transform: uppercase;">Custom
+                        Installs</p>
+                </div>
+                <div>
+                    <h3 style="font-size: 3rem; color: var(--primary); margin-bottom: 10px;">24/7</h3>
+                    <p style="font-size: 0.75rem; letter-spacing: 2px; opacity: 0.6; text-transform: uppercase;">Expert
+                        Support</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curated Experiences (New Services CTA) -->
+    <section class="section" style="padding-bottom: 150px;">
+        <div class="container">
+            <div class="curated-grid">
+                <div style="padding: 100px;">
+                    <span class="text-primary"
+                        style="letter-spacing: 5px; text-transform: uppercase; font-size: 0.8rem; font-weight: 700;">Design
+                        Consultation</span>
+                    <h2 style="font-size: 3rem; margin: 25px 0 40px;">Professional <br><span
+                            class="italic">Curation</span></h2>
+                    <p style="color: var(--text-muted); margin-bottom: 40px; line-height: 1.8;">Our lead designers are
+                        available for private 1-on-1 sessions to help harmonize your space with the LuxSpace aesthetic.
+                        Available in-person or virtually.</p>
+                    <button class="btn btn-primary">Book Session</button>
+                </div>
+                <div style="height: 100%;">
+                    <img src="Assets/about.jpg" alt="Consultation"
+                        style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="index.html" class="logo" style="margin-bottom: 20px;">
+                        <i class="fas fa-couch"></i> LuxSpace
+                    </a>
+                    <p style="color: var(--text-muted); margin-bottom: 25px;">Premium furniture crafted with passion. We
+                        bring together modern design and traditional craftsmanship to create timeless pieces for your
+                        home.</p>
+                    <div style="display: flex; gap: 15px;">
+                        <a href="#" class="toggle-btn"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="toggle-btn"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="toggle-btn"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Categories</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Living Room</a></li>
+                        <li><a href="#">Bedroom</a></li>
+                        <li><a href="#">Dining Room</a></li>
+                        <li><a href="#">Office Furniture</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Newsletter</h4>
+                    <p style="color: var(--text-muted); margin-bottom: 20px;">Subscribe to get special offers and design
+                        inspiration.</p>
+                    <div style="display: flex; gap: 10px;">
+                        <input type="email" placeholder="Email" class="input" style="flex: 1;">
+                        <button class="btn btn-primary" style="padding: 10px;"><i
+                                class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 LuxSpace Premium Furniture. All rights reserved.</p>
+                <div style="display: flex; gap: 20px;">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script src="rtltoggle.js"></script>
+</body>
+
+</html>

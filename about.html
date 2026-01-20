@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | LuxSpace</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Liquid Background -->
+    <div class="bg-blobs">
+        <div class="blob"></div>
+        <div class="blob"></div>
+        <div class="blob"></div>
+    </div>
+    <div class="bg-grid"></div>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo"><i class="fas fa-couch"></i> LuxSpace</a>
+            <!-- Mobile Menu Toggle -->
+            <button id="menu-toggle" class="toggle-btn" style="display: none; margin-right: 15px;">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li style="position: relative;">
+                    <a href="#" class="nav-link dropdown-toggle">Home <i class="fas fa-chevron-down"
+                            style="font-size: 0.8rem;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="index.html">Home 1</a></li>
+                        <li><a href="home2.html">Home 2</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html" class="nav-link active">About</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li style="position: relative;">
+                    <a href="#" class="nav-link dropdown-toggle">Dashboards <i class="fas fa-chevron-down"
+                            style="font-size: 0.8rem;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="dashboard-user.html">User Panel</a></li>
+                        <li><a href="dashboard-admin.html">Admin Panel</a></li>
+                    </ul>
+                </li>
+                <li class="mobile-nav-item"
+                    style="border-top: 1px solid var(--border); margin-top: 20px; padding-top: 20px;">
+                    <div
+                        style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px;">
+                        <div style="display: flex; gap: 15px;">
+                            <button class="toggle-btn theme-toggle"
+                                style="width: 45px; height: 45px; border-radius: 50%; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; background: var(--bg-main); color: var(--text-main); font-size: 1.2rem;"><i
+                                    class="fas fa-moon"></i></button>
+                            <button class="toggle-btn rtl-toggle"
+                                style="width: 45px; height: 45px; border-radius: 50%; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; background: var(--bg-main); color: var(--text-main); font-size: 1.2rem;"><i
+                                    class="fas fa-globe"></i></button>
+                        </div>
+                        <a href="login.html" class="btn btn-primary"
+                            style="flex: 1; min-width: 120px; text-align: center; padding: 12px 20px;">Login</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="nav-actions">
+                <button class="toggle-btn theme-toggle" title="Toggle Theme"><i class="fas fa-moon"></i></button>
+                <button class="toggle-btn rtl-toggle" title="Toggle RTL"><i class="fas fa-globe"></i></button>
+                <a href="login.html" class="btn btn-outline" style="padding: 8px 16px;">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="section" style="padding-top: 15vw;">
+        <div class="container">
+            <div class="about-hero-grid">
+                <div class="reveal">
+                    <h1 class="hero-title" style="font-size: 3.5rem;">Crafting Space <br><span
+                            class="text-primary">Since
+                            1998</span></h1>
+                    <p class="section-subtitle" style="margin: 0 0 30px 0;">Our journey started with a simple belief:
+                        that every home should be a reflection of the soul. We don't just sell furniture; we curate
+                        environments that inspire and comfort.</p>
+                    <p style="color: var(--text-muted); margin-bottom: 30px;">From the selection of the finest
+                        sustainable woods to the final hand-polished finish, our process is rooted in excellence and
+                        respect for craftsmanship. We collaborate with world-class designers to bring you pieces that
+                        are as functional as they are beautiful.</p>
+
+                    <div class="about-stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-value">25+</div>
+                            <p>Years of Excellence</p>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">50k+</div>
+                            <p>Happy Homes</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal">
+                    <img src="Assets/about.jpg" alt="Our Studio"
+                        style="width: 100%; border-radius: 40% 0 40% 0; box-shadow: 20px 20px 0 var(--primary);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Art of Materiality (New Premium Replacement) -->
+    <section class="section" style="background: var(--bg-alt); position: relative; padding: 15vw 0;">
+        <div class="container">
+            <div class="materiality-grid">
+                <div class="reveal" style="position: relative;">
+                    <div
+                        style="position: absolute; top: -50px; left: -50px; width: 100%; height: 100%; border: 1px solid var(--primary); border-radius: 200px 0 200px 0; z-index: 0; opacity: 0.3;">
+                    </div>
+                    <img src="Assets/product3.jpg" alt="Material Detail"
+                        style="width: 100%; border-radius: 200px 0 200px 0; position: relative; z-index: 1; box-shadow: var(--shadow-lg);">
+                    <div class="glass-box"
+                        style="position: absolute; bottom: 40px; right: -60px; padding: 40px; border-radius: 20px; max-width: 250px; z-index: 2;">
+                        <span class="text-primary"
+                            style="font-size: 0.7rem; letter-spacing: 3px; font-weight: 700;">AUTHENTICITY</span>
+                        <h4 style="margin-top: 10px;">Rare Italian Carrara</h4>
+                        <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 10px;">Hand-selected from the
+                            Apuan Alps for its unique vein symmetry.</p>
+                    </div>
+                </div>
+                <div class="reveal">
+                    <span class="text-primary"
+                        style="letter-spacing: 5px; text-transform: uppercase; font-size: 0.8rem; font-weight: 700;">Material
+                        Heritage</span>
+                    <h2 style="font-size: 4.5rem; line-height: 0.9; margin: 30px 0 50px;">The Soul of <br><span
+                            class="italic">Substance</span></h2>
+                    <p style="font-size: 1.2rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 40px;">
+                        Luxury is not just seen; it is felt. Every LuxSpace creation begins with a dialogue between the
+                        designer and the raw element. We prioritize materials that possess a 'living' quality—timbers
+                        that breathe, stones that store coolness, and silks that dance with light.</p>
+
+                    <div class="substance-grid">
+                        <div>
+                            <h4 style="margin-bottom: 10px;">Sensory First</h4>
+                            <p style="font-size: 0.9rem; color: var(--text-muted);">We optimize for haptic feedback,
+                                ensuring every touch points to a memory of quality.</p>
+                        </div>
+                        <div>
+                            <h4 style="margin-bottom: 10px;">Ethical Sourcing</h4>
+                            <p style="font-size: 0.9rem; color: var(--text-muted);">Our supply chain is a circle of
+                                respect for nature and the hands that harvest it.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Master's Touch (New High-Impact Section) -->
+    <section class="section"
+        style="background: var(--secondary); color: white; overflow: hidden; position: relative; padding: 10vw 0;">
+        <div
+            style="position: absolute; inset: 0; background: url('Assets/hero2.jpg') center/cover no-repeat; opacity: 0.15; filter: grayscale(1);">
+        </div>
+        <div class="container" style="position: relative; z-index: 1;">
+            <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+                <span class="reveal text-primary"
+                    style="letter-spacing: 10px; text-transform: uppercase; font-size: 0.8rem; font-weight: 700; display: block; margin-bottom: 40px;">Our
+                    Philosophy</span>
+                <h2 class="reveal" style="font-size: 5rem; font-weight: 800; line-height: 1; margin-bottom: 60px;">
+                    Sculpting the <br><span class="italic text-primary">Unseen</span> Atmosphere</h2>
+
+                <div class="philosophy-grid">
+                    <div class="reveal">
+                        <h4 style="color: var(--primary); margin-bottom: 20px; font-size: 1.5rem;">01. Architectural
+                            Precision</h4>
+                        <p style="opacity: 0.7; line-height: 1.8;">Our designs are informed by the brutalist lines of
+                            modern architecture, balanced by the organic flow of nature. We don't just build furniture;
+                            we define the geometry of your sanctuary.</p>
+                    </div>
+                    <div class="reveal">
+                        <h4 style="color: var(--primary); margin-bottom: 20px; font-size: 1.5rem;">02. Heritage
+                            Innovation</h4>
+                        <p style="opacity: 0.7; line-height: 1.8;">By merging age-old joinery techniques with
+                            21st-century material science, we ensure that every piece is a bridge between the artisan's
+                            legacy and the pioneer's vision.</p>
+                    </div>
+                </div>
+
+                <div class="reveal" style="margin-top: 100px;">
+                    <a href="services.html" class="btn btn-primary" style="padding: 25px 60px;">The Atelier Journey</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards & Recognition (Enhanced Creative Section) -->
+    <section class="section" style="border-top: 1px solid var(--border); background: var(--bg-main); overflow: hidden;">
+        <div class="container">
+            <div class="reveal text-center">
+                <span class="text-primary"
+                    style="letter-spacing: 5px; text-transform: uppercase; font-size: 0.8rem; font-weight: 700;">Recognition</span>
+                <h2 style="font-size: 4rem; margin: 20px 0 100px;">Global Design <span
+                        class="text-primary">Impact</span></h2>
+
+                <div class="awards-grid">
+                    <!-- Award 1 -->
+                    <div class="glass-box reveal"
+                        style="padding: 50px 30px; border-radius: 30px; border: 1px solid var(--border); transition: var(--transition);"
+                        onmouseover="this.style.transform='translateY(-15px)'; this.style.background='var(--secondary)'; this.style.color='white';"
+                        onmouseout="this.style.transform='translateY(0)'; this.style.background='var(--glass)'; this.style.color='var(--text-main)';">
+                        <div
+                            style="font-size: 4rem; color: var(--primary); margin-bottom: 25px; transition: transform 0.6s ease;">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h5 style="font-size: 1.25rem; margin-bottom: 10px;">Red Dot Selection</h5>
+                        <p style="font-size: 0.8rem; opacity: 0.6;">Product Design Gold 2024</p>
+                    </div>
+                    <!-- Award 2 -->
+                    <div class="glass-box reveal"
+                        style="padding: 50px 30px; border-radius: 30px; border: 1px solid var(--border); transition: var(--transition); margin-top: 40px;"
+                        onmouseover="this.style.transform='translateY(-15px)'; this.style.background='var(--secondary)'; this.style.color='white';"
+                        onmouseout="this.style.transform='translateY(0)'; this.style.background='var(--glass)'; this.style.color='var(--text-main)';">
+                        <div
+                            style="font-size: 4rem; color: var(--primary); margin-bottom: 25px; transition: transform 0.6s ease;">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h5 style="font-size: 1.25rem; margin-bottom: 10px;">iF Design Award</h5>
+                        <p style="font-size: 0.8rem; opacity: 0.6;">Innovation Leader 2025</p>
+                    </div>
+                    <!-- Award 3 -->
+                    <div class="glass-box reveal"
+                        style="padding: 50px 30px; border-radius: 30px; border: 1px solid var(--border); transition: var(--transition);"
+                        onmouseover="this.style.transform='translateY(-15px)'; this.style.background='var(--secondary)'; this.style.color='white';"
+                        onmouseout="this.style.transform='translateY(0)'; this.style.background='var(--glass)'; this.style.color='var(--text-main)';">
+                        <div
+                            style="font-size: 4rem; color: var(--primary); margin-bottom: 25px; transition: transform 0.6s ease;">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <h5 style="font-size: 1.25rem; margin-bottom: 10px;">Architizer A+</h5>
+                        <p style="font-size: 0.8rem; opacity: 0.6;">Global Excellence 2023</p>
+                    </div>
+                    <!-- Award 4 -->
+                    <div class="glass-box reveal"
+                        style="padding: 50px 30px; border-radius: 30px; border: 1px solid var(--border); transition: var(--transition); margin-top: 40px;"
+                        onmouseover="this.style.transform='translateY(-15px)'; this.style.background='var(--secondary)'; this.style.color='white';"
+                        onmouseout="this.style.transform='translateY(0)'; this.style.background='var(--glass)'; this.style.color='var(--text-main)';">
+                        <div
+                            style="font-size: 4rem; color: var(--primary); margin-bottom: 25px; transition: transform 0.6s ease;">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <h5 style="font-size: 1.25rem; margin-bottom: 10px;">Luxury Lifestyle</h5>
+                        <p style="font-size: 0.8rem; opacity: 0.6;">Best in World 2026</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Creative Minds (Team) -->
+    <section class="section team-section" style="position: relative; overflow: hidden;">
+        <!-- Dynamic Theme Background -->
+        <div class="team-bg" style="position: absolute; inset: 0; z-index: -1;"></div>
+
+        <div class="container">
+            <h2 class="section-title reveal text-center"
+                style="width: 100%; text-align: center; margin-bottom: 60px; color: var(--text-main);">
+                The <span class="text-primary">Visionaries</span></h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px;">
+                <!-- Team Member 1 -->
+                <div class="reveal team-card"
+                    style="position: relative; height: 600px; overflow: hidden; border-radius: 30px; background: #1a1a1b; box-shadow: var(--shadow);">
+                    <img src="Assets/leader-alexandra.png" alt="Alexandra Moore"
+                        style="width: 100%; height: 100%; object-fit: cover; opacity: 0.8; filter: grayscale(100%); transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);">
+                    <!-- Protective Overlay -->
+                    <div
+                        style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);">
+                    </div>
+                    <div class="team-info"
+                        style="position: absolute; bottom: 40px; left: 40px; right: 40px; transition: transform 0.5s ease; z-index: 2;">
+                        <span class="text-primary"
+                            style="font-size: 0.8rem; letter-spacing: 4px; text-transform: uppercase; display: block; margin-bottom: 10px; font-weight: 700;">Head
+                            of Design</span>
+                        <h3
+                            style="color: white; font-size: 2rem; margin-bottom: 5px; text-shadow: 0 2px 10px rgba(0,0,0,0.3);">
+                            Alexandra Moore</h3>
+                        <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem; line-height: 1.6;">Crafting spaces
+                            that resonate with the soul since 2012.</p>
+                    </div>
+                </div>
+                <!-- Team Member 2 -->
+                <div class="reveal team-card"
+                    style="position: relative; height: 600px; overflow: hidden; border-radius: 30px; background: #1a1a1b; box-shadow: var(--shadow);">
+                    <img src="Assets/leader-julian.png" alt="Julian Thorne"
+                        style="width: 100%; height: 100%; object-fit: cover; opacity: 0.8; filter: grayscale(100%); transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);">
+                    <!-- Protective Overlay -->
+                    <div
+                        style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);">
+                    </div>
+                    <div class="team-info"
+                        style="position: absolute; bottom: 40px; left: 40px; right: 40px; transition: transform 0.5s ease; z-index: 2;">
+                        <span class="text-primary"
+                            style="font-size: 0.8rem; letter-spacing: 4px; text-transform: uppercase; display: block; margin-bottom: 10px; font-weight: 700;">Master
+                            Artisan</span>
+                        <h3
+                            style="color: white; font-size: 2rem; margin-bottom: 5px; text-shadow: 0 2px 10px rgba(0,0,0,0.3);">
+                            Julian Thorne</h3>
+                        <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem; line-height: 1.6;">Where traditional
+                            craftsmanship meets futuristic precision.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <style>
+            .team-section {
+                background-color: var(--bg-alt);
+                transition: background-color 0.5s ease;
+            }
+
+            [data-theme="dark"] .team-section {
+                background-color: #0f1012;
+                /* Unique deep color for dark mode */
+            }
+
+            [data-theme="dark"] .team-bg {
+                background: radial-gradient(circle at 70% 30%, rgba(197, 160, 89, 0.08) 0%, transparent 50%),
+                    radial-gradient(circle at 30% 70%, rgba(197, 160, 89, 0.05) 0%, transparent 50%);
+            }
+
+            .team-card:hover img {
+                transform: scale(1.1);
+                filter: grayscale(0%);
+                opacity: 1;
+            }
+
+            .team-card:hover .team-info {
+                transform: translateY(-10px);
+            }
+        </style>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="index.html" class="logo" style="margin-bottom: 20px;">
+                        <i class="fas fa-couch"></i> LuxSpace
+                    </a>
+                    <p style="color: var(--text-muted); margin-bottom: 25px;">Premium furniture crafted with passion. We
+                        bring together modern design and traditional craftsmanship to create timeless pieces for your
+                        home.</p>
+                    <div style="display: flex; gap: 15px;">
+                        <a href="#" class="toggle-btn"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="toggle-btn"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="toggle-btn"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Categories</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Living Room</a></li>
+                        <li><a href="#">Bedroom</a></li>
+                        <li><a href="#">Dining Room</a></li>
+                        <li><a href="#">Office Furniture</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Newsletter</h4>
+                    <p style="color: var(--text-muted); margin-bottom: 20px;">Subscribe to get special offers and design
+                        inspiration.</p>
+                    <div style="display: flex; gap: 10px;">
+                        <input type="email" placeholder="Email" class="input" style="flex: 1;">
+                        <button class="btn btn-primary" style="padding: 10px;"><i
+                                class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 LuxSpace Premium Furniture. All rights reserved.</p>
+                <div style="display: flex; gap: 20px;">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script src="rtltoggle.js"></script>
+</body>
+
+</html>

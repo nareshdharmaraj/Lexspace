@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel | LuxSpace</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <!-- Liquid Background -->
+    <div class="bg-blobs">
+        <div class="blob"></div>
+        <div class="blob"></div>
+        <div class="blob"></div>
+    </div>
+    <div class="bg-grid"></div>
+
+    <!-- Original Navbar (Desktop) -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-couch"></i> LuxSpace
+            </a>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="menu-toggle" class="toggle-btn" style="display: none; margin-right: 15px;">
+                <i class="fas fa-bars"></i>
+            </button>
+
+
+            <ul class="nav-links">
+                <li style="position: relative;">
+                    <a href="#" class="nav-link dropdown-toggle">Home <i class="fas fa-chevron-down"
+                            style="font-size: 0.8rem;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="index.html">Home 1</a></li>
+                        <li><a href="home2.html">Home 2</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li style="position: relative;">
+                    <a href="#" class="nav-link active dropdown-toggle">Dashboards <i class="fas fa-chevron-down"
+                            style="font-size: 0.8rem;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="dashboard-user.html">User Panel</a></li>
+                        <li><a href="dashboard-admin.html">Admin Panel</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="toggle-btn theme-toggle" title="Toggle Theme"><i class="fas fa-moon"></i></button>
+                <button class="toggle-btn rtl-toggle" title="Toggle RTL"><i class="fas fa-globe"></i></button>
+                <a href="login.html" class="btn btn-outline" style="padding: 8px 16px;">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Voltfix Header -->
+    <header class="volt-header">
+        <div class="volt-header-top">
+            <a href="index.html" class="volt-logo">
+                <i class="fas fa-couch"></i> <span>LuxSpace</span>
+            </a>
+            <div class="volt-header-right">
+                <div class="volt-separator"></div>
+                <button class="volt-hamburger"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+
+        <!-- Navigation Menu Overlay -->
+        <div class="volt-nav-overlay">
+            <nav class="volt-nav-list">
+                <a href="index.html" class="volt-nav-item">Home <i class="fas fa-chevron-right"></i></a>
+                <a href="about.html" class="volt-nav-item">About <i class="fas fa-chevron-right"></i></a>
+                <a href="services.html" class="volt-nav-item">Services <i class="fas fa-chevron-right"></i></a>
+                <a href="contact.html" class="volt-nav-item">Contact <i class="fas fa-chevron-right"></i></a>
+                <a href="dashboard-user.html" class="volt-nav-item">User Dashboard <i
+                        class="fas fa-chevron-right"></i></a>
+                <a href="dashboard-admin.html" class="volt-nav-item active">Admin Dashboard <i
+                        class="fas fa-chevron-right"></i></a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-menu">
+                <a href="#" class="sidebar-link active" onclick="showSection('overview', this)">
+                    <i class="fas fa-th-large"></i> Overview
+                </a>
+                <a href="#" class="sidebar-link" onclick="showSection('users', this)">
+                    <i class="fas fa-users"></i> Users
+                </a>
+                <a href="#" class="sidebar-link" onclick="showSection('security', this)">
+                    <i class="fas fa-shield-alt"></i> Security
+                </a>
+                <a href="#" class="sidebar-link" onclick="showSection('logs', this)">
+                    <i class="fas fa-file-medical-alt"></i> System Logs
+                </a>
+                <a href="#" class="sidebar-link" onclick="showSection('liveops', this)">
+                    <i class="fas fa-globe-americas"></i> Live Ops
+                </a>
+                <a href="#" class="sidebar-link" onclick="showSection('logistics', this)">
+                    <i class="fas fa-truck"></i> Logistics
+                </a>
+                <a href="#" class="sidebar-link" onclick="showSection('intelligence', this)">
+                    <i class="fas fa-brain"></i> Intelligence
+                </a>
+                <a href="#" class="sidebar-link" onclick="showSection('settings', this)">
+                    <i class="fas fa-cog"></i> Settings
+                </a>
+            </div>
+
+            <div style="margin-top: auto; padding-top: 30px; border-top: 1px solid var(--border);">
+                <a href="index.html" class="sidebar-link" style="color: var(--danger);">
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Voltfix Subheader -->
+            <div class="volt-subheader">
+                <button class="volt-menu-btn">
+                    <i class="fas fa-bars"></i> Menu
+                </button>
+            </div>
+
+            <header
+                style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; padding: 0 30px;">
+                <h1 style="font-size: 2rem;">System <span class="text-primary">Overview</span></h1>
+                <div class="nav-actions" style="display: flex; gap: 15px; align-items: center;">
+                    <img src="Assets/avatar.jpg" alt="Profile"
+                        style="width: 45px; height: 45px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary);">
+                </div>
+            </header>
+
+            <!-- Section: Overview -->
+            <div id="overview" class="section-content active">
+                <div class="dashboard-grid-4">
+                    <div class="stat-card">
+                        <p style="color: var(--text-muted); font-size: 0.9rem;">Monthly Revenue</p>
+                        <div class="stat-value counter" data-target="124500" data-suffix=""
+                            style="font-size: 2rem; font-weight: 800; color: var(--primary);">$0</div>
+                        <p style="color: var(--success); font-size: 0.8rem;">+15.2% vs last month</p>
+                    </div>
+                    <div class="stat-card">
+                        <p style="color: var(--text-muted); font-size: 0.9rem;">Active Orders</p>
+                        <div class="stat-value counter" data-target="84" data-suffix=""
+                            style="font-size: 2rem; font-weight: 800; color: var(--primary);">0</div>
+                        <p style="color: var(--info); font-size: 0.8rem;">12 pending shipment</p>
+                    </div>
+                    <div class="stat-card">
+                        <p style="color: var(--text-muted); font-size: 0.9rem;">New Customers</p>
+                        <div class="stat-value counter" data-target="156" data-suffix=""
+                            style="font-size: 2rem; font-weight: 800; color: var(--primary);">0</div>
+                        <p style="color: var(--success); font-size: 0.8rem;">80% conversion rate</p>
+                    </div>
+                    <div class="stat-card">
+                        <p style="color: var(--text-muted); font-size: 0.9rem;">Inventory Alert</p>
+                        <div class="stat-value counter" data-target="3" data-suffix=""
+                            style="font-size: 2rem; font-weight: 800; color: var(--primary);">0</div>
+                        <p style="color: var(--danger); font-size: 0.8rem;">Items low in stock</p>
+                    </div>
+                </div>
+
+                <div class="dashboard-split-2-1">
+                    <div class="stat-card">
+                        <h3>Revenue Growth</h3>
+                        <div style="height: 300px; position: relative; margin-top: 20px;">
+                            <canvas id="revenueChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Top Selling</h3>
+                        <div style="margin-top: 25px;">
+                            <div
+                                style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid var(--border);">
+                                <div style="display: flex; gap: 10px; align-items: center;">
+                                    <img src="Assets/product1.jpg"
+                                        style="width: 40px; height: 40px; border-radius: 8px; object-fit: cover;">
+                                    <span>Emerald Sofa</span>
+                                </div>
+                                <span style="font-weight: 700;">$42k</span>
+                            </div>
+                            <div
+                                style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid var(--border);">
+                                <div style="display: flex; gap: 10px; align-items: center;">
+                                    <img src="Assets/product2.jpg"
+                                        style="width: 40px; height: 40px; border-radius: 8px; object-fit: cover;">
+                                    <span>Oak Weaver</span>
+                                </div>
+                                <span style="font-weight: 700;">$28k</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section: Users -->
+            <div id="users" class="section-content">
+                <div class="stat-card">
+                    <h3>User Management</h3>
+                    <table class="data-table" style="margin-top: 20px;">
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Role</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>John Doe</td>
+                                <td>Customer</td>
+                                <td><span style="color: var(--success);">Active</span></td>
+                                <td><i class="fas fa-edit"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Jane Smith</td>
+                                <td>Admin</td>
+                                <td><span style="color: var(--success);">Active</span></td>
+                                <td><i class="fas fa-edit"></i></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Section: Security -->
+            <div id="security" class="section-content">
+                <div class="stat-card" style="border-left: 5px solid var(--primary);">
+                    <h3>Security Protocols</h3>
+                    <div style="margin-top: 20px; display: flex; flex-direction: column; gap: 15px;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; padding: 10px; background: rgba(var(--bg-main-rgb), 0.5); border-radius: 10px;">
+                            <span>Two-Factor Authentication</span>
+                            <span style="color: var(--success);">ENABLED</span>
+                        </div>
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; padding: 10px; background: rgba(var(--bg-main-rgb), 0.5); border-radius: 10px;">
+                            <span>SSL Certificate</span>
+                            <span style="color: var(--success);">VALID</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section: Logs -->
+            <div id="logs" class="section-content">
+                <div class="stat-card" style="font-family: monospace; background: #1a1a1a; color: #00ff00;">
+                    <h3>System Logs</h3>
+                    <div style="margin-top: 20px; font-size: 0.85rem;">
+                        <p>[2026-01-20 07:05:12] SUCCESS: Database backup completed.</p>
+                        <p>[2026-01-20 07:08:44] INFO: New user registration #UX-992.</p>
+                        <p>[2026-01-20 07:12:01] WARNING: High traffic detected from Region 4.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section: Live Ops -->
+            <div id="liveops" class="section-content">
+                <!-- Global Ops Map -->
+                <div class="stat-card"
+                    style="margin-bottom: 40px; padding: 0; overflow: hidden; height: 600px; position: relative; background: #111;">
+                    <div style="position: absolute; top: 20px; left: 20px; z-index: 2;">
+                        <h3 style="color: white; margin-bottom: 5px;">Live Operations Tracker</h3>
+                        <div style="display: flex; gap: 10px; align-items: center;">
+                            <div
+                                style="width: 8px; height: 8px; background: #00ff88; border-radius: 50%; box-shadow: 0 0 10px #00ff88;">
+                            </div>
+                            <span style="color: rgba(255,255,255,0.7); font-size: 0.8rem;">System Operational</span>
+                        </div>
+                    </div>
+
+                    <div
+                        style="width: 100%; height: 100%; opacity: 0.3; background: url('https://upload.wikimedia.org/wikipedia/commons/e/ec/World_map_blank_without_borders.svg') center/cover; filter: invert(1);">
+                    </div>
+
+                    <!-- Animated Pings -->
+                    <div class="ping" style="top: 30%; left: 20%;"></div>
+                    <div class="ping" style="top: 40%; left: 70%; animation-delay: 0.5s;"></div>
+                    <div class="ping" style="top: 60%; left: 60%; animation-delay: 1.2s;"></div>
+                    <div class="ping" style="top: 25%; left: 80%; animation-delay: 2s;"></div>
+
+                    <style>
+                        .ping {
+                            position: absolute;
+                            width: 10px;
+                            height: 10px;
+                            background: var(--primary);
+                            border-radius: 50%;
+                            transform: translate(-50%, -50%);
+                        }
+
+                        .ping::after {
+                            content: '';
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            width: 100%;
+                            height: 100%;
+                            border: 1px solid var(--primary);
+                            border-radius: 50%;
+                            animation: radar 2s infinite ease-out;
+                        }
+
+                        @keyframes radar {
+                            0% {
+                                width: 0;
+                                height: 0;
+                                opacity: 1;
+                            }
+
+                            100% {
+                                width: 100px;
+                                height: 100px;
+                                opacity: 0;
+                            }
+                        }
+                    </style>
+                </div>
+            </div>
+
+            <!-- Section: Logistics -->
+            <div id="logistics" class="section-content">
+                <div class="dashboard-split-2-1">
+                    <div class="stat-card">
+                        <h3 style="margin-bottom: 25px;">Global Logistics <span class="text-primary">Status</span></h3>
+                        <div style="display: flex; flex-direction: column; gap: 20px;">
+                            <div
+                                style="display: flex; align-items: center; justify-content: space-between; padding: 15px; background: var(--bg-alt); border-radius: 15px;">
+                                <div style="display: flex; align-items: center; gap: 15px;">
+                                    <div
+                                        style="width: 10px; height: 10px; border-radius: 50%; background: var(--success);">
+                                    </div>
+                                    <span>NY Hub -> London Atelier</span>
+                                </div>
+                                <span style="font-weight: 700;">In Transit</span>
+                            </div>
+                            <div
+                                style="display: flex; align-items: center; justify-content: space-between; padding: 15px; background: var(--bg-alt); border-radius: 15px;">
+                                <div style="display: flex; align-items: center; gap: 15px;">
+                                    <div
+                                        style="width: 10px; height: 10px; border-radius: 50%; background: var(--warning);">
+                                    </div>
+                                    <span>Tokyo Port -> Kyoto Studio</span>
+                                </div>
+                                <span style="font-weight: 700;">Delayed (Weather)</span>
+                            </div>
+                            <div
+                                style="display: flex; align-items: center; justify-content: space-between; padding: 15px; background: var(--bg-alt); border-radius: 15px;">
+                                <div style="display: flex; align-items: center; gap: 15px;">
+                                    <div
+                                        style="width: 10px; height: 10px; border-radius: 50%; background: var(--success);">
+                                    </div>
+                                    <span>Paris Showroom -> Berlin</span>
+                                </div>
+                                <span style="font-weight: 700;">Dispatched</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat-card"
+                        style="background: linear-gradient(to bottom, var(--card-bg), rgba(197, 160, 89, 0.05));">
+                        <h3 style="margin-bottom: 25px;">Stock <span class="text-primary">Alerts</span></h3>
+                        <div style="text-align: center; padding: 20px 0;">
+                            <div style="font-size: 3rem; font-weight: 800; color: var(--danger);">04</div>
+                            <p style="color: var(--text-muted); margin-bottom: 20px;">Critical stock items below
+                                threshold
+                            </p>
+                            <button class="btn btn-primary" style="width: 100%;">Order Replenishment</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section: Intelligence -->
+            <div id="intelligence" class="section-content">
+                <div
+                    style="padding: 40px; background: var(--bg-alt); border-radius: 30px; border: 1px solid var(--border);">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+                        <h2 style="font-size: 1.8rem;">System <span class="italic text-primary">Intelligence</span></h2>
+                        <span
+                            style="background: var(--primary); color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: 700;">AI
+                            OPTIMIZED</span>
+                    </div>
+                    <p style="color: var(--text-muted); line-height: 1.8; max-width: 800px;">Our predictive modeling
+                        suggests a 22% increase in request for <span class="text-primary"
+                            style="font-weight: 700;">Brutalist Steel</span> collections in the DACH region over the
+                        next
+                        quarter. Recommendation: Increase procurement of raw slate and tempered steel from Nordic
+                        suppliers
+                        by Feb 15th.</p>
+                </div>
+            </div>
+
+            <!-- Section: Settings -->
+            <div id="settings" class="section-content">
+                <div class="stat-card">
+                    <h3 style="margin-bottom: 20px;">Admin Settings</h3>
+                    <p style="color: var(--text-muted);">System configuration and user management.</p>
+                    <div
+                        style="margin-top: 30px; padding: 20px; border: 1px dashed var(--border); border-radius: 10px;">
+                        <p class="text-center">Settings panel is under construction.</p>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="index.html" class="logo" style="margin-bottom: 20px;">
+                        <i class="fas fa-couch"></i> LuxSpace
+                    </a>
+                    <p style="color: var(--text-muted); margin-bottom: 25px;">Premium furniture crafted with passion. We
+                        bring together modern design and traditional craftsmanship to create timeless pieces for your
+                        home.</p>
+                    <div style="display: flex; gap: 15px;">
+                        <a href="#" class="toggle-btn"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="toggle-btn"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="toggle-btn"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Categories</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Living Room</a></li>
+                        <li><a href="#">Bedroom</a></li>
+                        <li><a href="#">Dining Room</a></li>
+                        <li><a href="#">Office Furniture</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Newsletter</h4>
+                    <p style="color: var(--text-muted); margin-bottom: 20px;">Subscribe to get special offers and design
+                        inspiration.</p>
+                    <div style="display: flex; gap: 10px;">
+                        <input type="email" placeholder="Email" class="input" style="flex: 1;">
+                        <button class="btn btn-primary" style="padding: 10px;"><i
+                                class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 LuxSpace Premium Furniture. All rights reserved.</p>
+                <div style="display: flex; gap: 20px;">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script src="rtltoggle.js"></script>
+    <script>
+        const ctx = document.getElementById('revenueChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'Revenue 2026',
+                    data: [12000, 19000, 15000, 25000, 22000, 30000],
+                    borderColor: '#3d405b',
+                    tension: 0.4,
+                    fill: true,
+                    backgroundColor: 'rgba(61, 64, 91, 0.1)'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: { y: { beginAtZero: true } }
+            }
+        });
+
+        function showSection(sectionId, link) {
+            // Prevent default anchor behavior
+            event.preventDefault();
+
+            // Hide all sections
+            document.querySelectorAll('.section-content').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Show target section
+            document.getElementById(sectionId).classList.add('active');
+
+            // Update sidebar active state
+            document.querySelectorAll('.sidebar-link').forEach(l => {
+                l.classList.remove('active');
+            });
+            link.classList.add('active');
+        }
+    </script>
+</body>
+
+</html>
