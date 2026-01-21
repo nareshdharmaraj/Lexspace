@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
 /* Voltfix Dashboard Styles */
 .volt-header {
     background: var(--bg-alt);
@@ -63,7 +65,8 @@
 }
 
 .volt-subheader {
-    padding: 20px 30px;
+    padding: 0 30px;
+    margin-bottom: 10px;
     background: var(--bg-main);
     display: none;
     /* Hidden by default on desktop */
@@ -140,9 +143,9 @@
         /* Shown only on mobile */
     }
 
-    .navbar {
+    /* Only hide navbar on mobile if we are on a dashboard page that uses volt-header */
+    .dashboard-page .navbar {
         display: none !important;
-        /* Hidden on mobile dashboards */
     }
 
     .volt-subheader {
@@ -151,11 +154,11 @@
 
     .dashboard-container {
         display: block;
-        padding-top: 0;
+        padding-top: 5px !important;
     }
 
     .main-content {
-        padding: 20px;
+        padding: 5px 20px !important;
     }
 
     .dashboard-menu-toggle {
@@ -178,7 +181,7 @@
     }
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
 
 :root {
     /* Avant-Garde Palette: Deep Obsidian, Champagne Gold, & Ethereal Mist */
@@ -676,6 +679,10 @@ img {
     border: 1px solid var(--border);
 }
 
+#menu-toggle {
+    display: none;
+}
+
 .toggle-btn i {
     color: var(--text-main) !important;
 }
@@ -896,10 +903,6 @@ img {
         border-bottom: 1px solid var(--border);
         box-shadow: var(--shadow);
     }
-
-    .toggle-btn#menu-toggle {
-        display: flex;
-    }
 }
 
 /* Outline Text */
@@ -918,14 +921,20 @@ img {
     color: var(--primary);
 }
 
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
 .product-card {
     background: var(--card-bg);
     border-radius: var(--radius);
     overflow: hidden;
     border: 1px solid var(--border);
     transition: var(--transition);
-    flex: 1 1 300px;
-    max-width: 400px;
+    width: 100%;
 }
 
 .product-card:hover {
@@ -1381,6 +1390,34 @@ img {
 
     .nav-links {
         display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--bg-alt);
+        padding: 30px;
+        border-radius: 20px;
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow-lg);
+        margin-top: 15px;
+        max-height: 80vh;
+        overflow-y: auto;
+        z-index: 1000;
+        gap: 15px;
+    }
+
+    .nav-links.active {
+        display: flex !important;
+        animation: fadeInUp 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .nav-link {
+        font-size: 1rem !important;
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(125, 125, 125, 0.05);
+        display: block;
+        width: 100%;
     }
 
     .logo {
@@ -1431,9 +1468,33 @@ img {
     .materiality-grid,
     .substance-grid,
     .philosophy-grid,
-    .awards-grid {
+    .awards-grid,
+    .contact-hero-grid,
+    .offices-grid,
+    .community-stats-grid,
+    .community-images-grid,
+    .contact-methods-grid,
+    .process-grid,
+    .feature-split-grid,
+    .masonry-grid,
+    .dashboard-grid-3,
+    .dashboard-grid-2,
+    .dashboard-split-2-1,
+    .dashboard-responsive-flex,
+    .product-grid,
+    .footer-grid,
+    .narratives-grid,
+    .billing-grid,
+    .security-list {
+        display: flex !important;
+        flex-direction: column !important;
         grid-template-columns: 1fr !important;
         gap: 30px;
+    }
+
+    .masonry-item-wide,
+    .masonry-item-tall {
+        grid-column: span 1 !important;
     }
 
     .countdown-container {
@@ -1461,6 +1522,62 @@ img {
     .masonry-grid {
         grid-template-columns: 1fr;
         grid-auto-rows: auto;
+    }
+
+    .vip-cta-box {
+        padding: 40px 20px !important;
+    }
+
+    .trust-bar-content {
+        justify-content: center !important;
+        gap: 30px !important;
+        text-align: center;
+    }
+
+    .consult-banner {
+        flex-direction: column !important;
+        padding: 40px 20px !important;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .consult-banner>div {
+        text-align: center !important;
+    }
+
+    .consult-banner .btn {
+        width: 100%;
+    }
+
+    .stat-card h3 {
+        font-size: 1.2rem;
+    }
+
+    header[style*="display: flex; justify-content: space-between;"] {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        padding: 0 20px !important;
+        gap: 10px !important;
+        margin-top: 0 !important;
+        margin-bottom: 15px !important;
+    }
+
+    .billing-grid>div {
+        min-width: 0 !important;
+        width: 100% !important;
+    }
+
+    .data-table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .data-table th,
+    .data-table td {
+        white-space: nowrap;
+        padding: 10px !important;
     }
 
     .masonry-item-tall,
@@ -1563,7 +1680,7 @@ img {
     }
 
     .main-content {
-        padding: 20px;
+        padding: 5px 20px !important;
     }
 }
 
