@@ -29,24 +29,26 @@ function updateThemeIcons(theme) {
 const dot = document.querySelector('.cursor-dot');
 const outline = document.querySelector('.cursor-outline');
 
-window.addEventListener('mousemove', (e) => {
-    const posX = e.clientX;
-    const posY = e.clientY;
+if (dot && outline) {
+    window.addEventListener('mousemove', (e) => {
+        const posX = e.clientX;
+        const posY = e.clientY;
 
-    dot.style.left = `${posX}px`;
-    dot.style.top = `${posY}px`;
+        dot.style.left = `${posX}px`;
+        dot.style.top = `${posY}px`;
 
-    outline.animate({
-        left: `${posX}px`,
-        top: `${posY}px`
-    }, { duration: 500, fill: "forwards" });
-});
+        outline.animate({
+            left: `${posX}px`,
+            top: `${posY}px`
+        }, { duration: 500, fill: "forwards" });
+    });
 
-// Hover effect for links
-document.querySelectorAll('a, button').forEach(el => {
-    el.addEventListener('mouseenter', () => outline.style.transform = 'translate(-50%, -50%) scale(2)');
-    el.addEventListener('mouseleave', () => outline.style.transform = 'translate(-50%, -50%) scale(1)');
-});
+    // Hover effect for links
+    document.querySelectorAll('a, button').forEach(el => {
+        el.addEventListener('mouseenter', () => outline.style.transform = 'translate(-50%, -50%) scale(2)');
+        el.addEventListener('mouseleave', () => outline.style.transform = 'translate(-50%, -50%) scale(1)');
+    });
+}
 
 // Navbar Scroll Effect
 window.addEventListener('scroll', () => {
@@ -115,17 +117,18 @@ const animateCounters = () => {
     counters.forEach(counter => {
         const updateCount = () => {
             const target = +counter.getAttribute('data-target');
-            const currentText = counter.innerText.replace(/,/g, '').replace('+', '').replace('%', '').replace('k', '000');
+            const prefix = counter.getAttribute('data-prefix') || '';
+            const suffix = counter.getAttribute('data-suffix') || '';
+            const currentText = counter.innerText.replace(/,/g, '').replace('+', '').replace('%', '').replace('k', '000').replace('$', '');
             const count = isNaN(currentText) ? 0 : +currentText;
             const inc = target / speed;
 
             if (count < target) {
                 const newValue = Math.ceil(count + inc);
-                const suffix = counter.getAttribute('data-suffix') || '';
-                counter.innerText = newValue.toLocaleString() + suffix;
+                counter.innerText = prefix + newValue.toLocaleString() + suffix;
                 setTimeout(updateCount, 1);
             } else {
-                counter.innerText = target.toLocaleString() + (counter.getAttribute('data-suffix') || '');
+                counter.innerText = prefix + target.toLocaleString() + suffix;
             }
         };
 

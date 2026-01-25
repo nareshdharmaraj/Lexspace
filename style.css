@@ -187,6 +187,7 @@
     /* Avant-Garde Palette: Deep Obsidian, Champagne Gold, & Ethereal Mist */
     --primary: #c5a059;
     /* Lustrous Gold */
+    --primary-rgb: 197, 160, 89;
     --primary-dark: #a68446;
     --secondary: #0a0a0b;
     /* Deep Obsidian */
@@ -1764,6 +1765,13 @@ img {
     margin-bottom: 40px;
 }
 
+.dashboard-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
 .dashboard-grid-4 {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -1807,12 +1815,330 @@ img {
     border-radius: var(--radius);
     border: 1px solid var(--border);
     box-shadow: var(--shadow);
+    transition: var(--transition);
 }
 
-.stat-value {
-    font-size: 2rem;
-    font-weight: 800;
-    color: var(--primary);
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+}
+
+/* Mockup Chart Styles */
+.mock-chart {
+    width: 100%;
+    position: relative;
+}
+
+.mock-chart-container {
+    padding: 30px 20px 20px 40px;
+    background: rgba(var(--bg-main-rgb), 0.3);
+    border-radius: 15px;
+    border: 1px solid var(--border);
+    margin-top: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Background Grids */
+.chart-grid {
+    position: absolute;
+    inset: 30px 20px 40px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.grid-line {
+    width: 100%;
+    height: 1px;
+    background: var(--border);
+    opacity: 0.3;
+}
+
+/* Axis Labels */
+.chart-y-axis {
+    position: absolute;
+    left: 10px;
+    top: 30px;
+    bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    text-align: right;
+    width: 25px;
+}
+
+.chart-x-axis {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    font-size: 0.65rem;
+    color: var(--text-muted);
+}
+
+/* Bar Chart Mockup */
+.mock-bar-chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+    height: 180px;
+    position: relative;
+    z-index: 1;
+}
+
+.mock-bar {
+    flex: 1;
+    background: linear-gradient(to top, var(--primary), var(--primary-dark));
+    border-radius: 6px 6px 2px 2px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    min-width: 20px;
+}
+
+.mock-bar:hover {
+    filter: brightness(1.2);
+    transform: scaleX(1.1);
+    z-index: 2;
+}
+
+.mock-bar::after {
+    content: attr(data-value);
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--secondary);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    white-space: nowrap;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.mock-bar:hover::after {
+    opacity: 1;
+}
+
+/* Donut Chart Mockup */
+.mock-donut-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 10px;
+}
+
+.mock-donut {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: conic-gradient(var(--primary) 0% 65%,
+            var(--info) 65% 85%,
+            var(--warning) 85% 100%);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.mock-donut:hover {
+    transform: rotate(15deg) scale(1.05);
+}
+
+.mock-donut::after {
+    content: '';
+    width: 70%;
+    height: 70%;
+    background: var(--card-bg);
+    border-radius: 50%;
+    position: absolute;
+    box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.mock-donut-info {
+    z-index: 1;
+    text-align: center;
+}
+
+.mock-donut-legend {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.legend-color {
+    width: 14px;
+    height: 14px;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Line Chart Mockup (SVG based) */
+.mock-line-chart {
+    height: 180px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.mock-line-path {
+    fill: none;
+    stroke: var(--primary);
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: dash 3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes dash {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.mock-line-dots circle {
+    fill: var(--card-bg);
+    stroke: var(--primary);
+    stroke-width: 2;
+    transition: r 0.3s ease;
+    cursor: pointer;
+}
+
+.mock-line-dots circle:hover {
+    r: 6;
+    fill: var(--primary);
+}
+
+/* Activity Grid (Commit Map style) */
+.mock-activity-grid {
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    gap: 4px;
+}
+
+.activity-cell {
+    aspect-ratio: 1;
+    border-radius: 3px;
+    background: rgba(var(--primary-rgb, 197, 160, 89), 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.activity-cell:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 10px var(--primary);
+    z-index: 1;
+}
+
+.activity-cell.level-1 {
+    background: rgba(197, 160, 89, 0.35);
+}
+
+.activity-cell.level-2 {
+    background: rgba(197, 160, 89, 0.65);
+}
+
+.activity-cell.level-3 {
+    background: rgba(197, 160, 89, 0.95);
+}
+
+/* Activity Legend */
+.activity-legend {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 15px;
+    font-size: 0.65rem;
+    color: var(--text-muted);
+}
+
+/* Counter Animation Support */
+.counter {
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+/* Chart Container Enhancements */
+canvas {
+    transition: opacity 0.3s ease;
+}
+
+.stat-card canvas {
+    opacity: 0;
+    animation: fadeInChart 0.6s ease forwards;
+    animation-delay: 0.2s;
+}
+
+@keyframes fadeInChart {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Chart Heights */
+@media (max-width: 1024px) {
+    canvas {
+        max-height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .mock-donut-container {
+        flex-direction: column;
+    }
+
+    .dashboard-grid-3,
+    .dashboard-grid-4 {
+        gap: 15px;
+    }
+
+    .mock-bar-chart {
+        height: 150px;
+        gap: 6px;
+    }
+
+    .mock-bar {
+        min-width: 10px;
+    }
+    
+    canvas {
+        max-height: 250px !important;
+    }
+    
+    .stat-card h3 {
+        font-size: 1.1rem;
+    }
+    
+    .stat-value {
+        font-size: 1.5rem !important;
+    }
 }
 
 .data-table {
@@ -1844,9 +2170,89 @@ img {
     padding-right: 5px;
 }
 
+/* RTL Support for Charts and Dashboard Elements */
+[dir="rtl"] .chart-y-axis {
+    left: auto;
+    right: 10px;
+    text-align: left;
+}
+
+[dir="rtl"] .mock-chart-container {
+    padding: 30px 40px 20px 20px;
+}
+
+[dir="rtl"] .chart-grid {
+    inset: 30px 40px 40px 20px;
+}
+
+[dir="rtl"] .stat-card {
+    text-align: right;
+}
+
+[dir="rtl"] .dashboard-responsive-flex {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .activity-legend {
+    flex-direction: row-reverse;
+}
+
 /* Mobile Nav Items hidden by default */
 .mobile-nav-item {
     display: none;
+}
+
+/* Enhanced Responsive Charts */
+@media (max-width: 1200px) {
+    .dashboard-grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .dashboard-grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-grid-4,
+    .dashboard-grid-3,
+    .dashboard-grid-2 {
+        grid-template-columns: 1fr;
+    }
+    
+    .mock-chart-container {
+        padding: 20px 15px 15px 30px;
+    }
+    
+    [dir="rtl"] .mock-chart-container {
+        padding: 20px 30px 15px 15px;
+    }
+    
+    .chart-grid {
+        inset: 20px 15px 30px 30px;
+    }
+    
+    [dir="rtl"] .chart-grid {
+        inset: 20px 30px 30px 15px;
+    }
+    
+    .stat-card {
+        padding: 20px;
+    }
+    
+    canvas {
+        max-height: 250px;
+    }
+    
+    .mock-activity-grid {
+        grid-template-columns: repeat(auto-fill, minmax(10px, 1fr)) !important;
+        gap: 3px !important;
+    }
+    
+    .activity-cell {
+        width: 10px !important;
+        height: 10px !important;
+    }
 }
 
 /* Mobile Overrides & Fixes */
